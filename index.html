@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch(window.location.href, { method: 'GET' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP Error: ${response.status}`);
+                    }
+                })
+                .catch(() => {
+                    document.body.innerHTML = `<h1>Error 403: Forbidden</h1><p>You do not have permission to access this page.</p>`;
+                });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
